@@ -20,31 +20,6 @@ ARG tag=master
 
 WORKDIR /opt/octoprint
 
-#install ffmpeg
-RUN cd /tmp \
-  && wget -O ffmpeg.tar.xz https://www.johnvansickle.com/ffmpeg/old-releases/ffmpeg-4.0.3-32bit-static.tar.xz \
-    && mkdir -p /opt/ffmpeg \
-    && tar xvf ffmpeg.tar.xz -C /opt/ffmpeg --strip-components=1 \
-  && rm -Rf /tmp/*
-
-#install Cura
-RUN cd /tmp \
-  && wget https://github.com/Ultimaker/CuraEngine/archive/${CURA_VERSION}.tar.gz \
-  && tar -zxf ${CURA_VERSION}.tar.gz \
-    && cd CuraEngine-${CURA_VERSION} \
-    && mkdir build \
-    && make \
-    && mv -f ./build /opt/cura/ \
-  && rm -Rf /tmp/*
-
-#Install Slic3r
-COPY latestslic3r.py /opt/latestslic3r.py
-RUN cd /opt/ \
-  && curl https://dl.slic3r.org/linux/$(/opt/latestslic3r.py) | tar xj
-
-# Dev builds have disappeared???
-  #&& curl https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2 | tar xj
-
 #Create an octoprint user
 RUN useradd -ms /bin/bash octoprint && adduser octoprint dialout
 RUN chown octoprint:octoprint /opt/octoprint
