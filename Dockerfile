@@ -5,14 +5,6 @@ EXPOSE 8080
 RUN apt-get update && \
     apt-get install -y cmake libjpeg62-turbo-dev g++ wget unzip psmisc
 
-RUN cd /tmp/ && \
-    wget https://github.com/jacksonliam/mjpg-streamer/archive/master.zip && \
-    unzip master
-
-RUN cd /tmp/mjpg-streamer-master/mjpg-streamer-experimental/ && \
-    make && \
-    make install
-
 EXPOSE 5000
 
 ENV CURA_VERSION=15.04.6
