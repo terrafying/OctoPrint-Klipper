@@ -38,9 +38,7 @@ https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/master.zip
 # Installing from sillyfrog until the PR is merged to master
 RUN /opt/octoprint/venv/bin/python -m pip install https://github.com/sillyfrog/OctoPrint-PrintHistory/archive/master.zip
 
-
 VOLUME /home/octoprint/.octoprint
-
 
 ### Klipper setup ###
 
@@ -59,8 +57,6 @@ WORKDIR /home/octoprint
 RUN git clone https://github.com/KevinOConnor/klipper
 
 RUN ./klipper/scripts/install-octopi.sh
-
-RUN cp klipper/config/printer-anet-a8-2017.cfg /home/octoprint/printer.cfg
 
 USER root
 
