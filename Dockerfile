@@ -39,8 +39,6 @@ RUN /opt/octoprint/venv/bin/python -m pip install \
 https://github.com/pablogventura/Octoprint-ETA/archive/master.zip \
 https://github.com/1r0b1n0/OctoPrint-Tempsgraph/archive/master.zip \
 https://github.com/dattas/OctoPrint-DetailedProgress/archive/master.zip \
-https://github.com/kennethjiang/OctoPrint-Slicer/archive/master.zip \
-https://github.com/OctoPrint/OctoPrint-Slic3r/archive/master.zip \
 https://github.com/mmone/OctoPrintKlipper/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-TabOrder/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/master.zip
