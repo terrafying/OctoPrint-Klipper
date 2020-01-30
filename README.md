@@ -27,7 +27,9 @@ docker run -d --name octoprint-klipper -e TZ=America/New_York -v /home/docker/oc
 
 Stop the container, and modify your [Klipper] `printer.cfg` and [Octoprint] `config.yaml` in the config directory as needed.
 
-Start the container.
+Restart the container.
+
+A docker-compose file is also provided.
 
 If you have any questions, feel free to log an issue on this project, and I'll see if I can help.
 
