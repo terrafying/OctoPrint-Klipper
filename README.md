@@ -1,50 +1,44 @@
-# OctoPrint-Klipper-mjpg-Dockerfile
-A Dockerfile for running OctoPrint Klipper and mjpg in a single container.
+# OctoPrint-Klipper
 
-My initial goal was to run these across different containers, but I couldn't get the Docker permissions to play nicely.
+My version of a Docker image for running [OctoPrint] and [Klipper] in a single container. Included a few plugins I find useful.
+
+Big thanks to [sillyfrog](https://github.com/sillyfrog) for laying the groundwork for this image.
 
 This is very much written for what I needed, so you'll likely need to hack this up for your setup. I've been using it for a little while now and it's going well.
 
-Also included are some udev rules for reference that I use. These will need to be updated with your API key etc, however it makes connecting/disconnecting (power on/off) of the printer much less painful.
-
 ## Running the container
 
-Once the container is built (the usual `docker build . -t okmd`), I use the following command to run it (again, you will need to customise for your setup, I have 3 cameras also connected):
+Create a directory on your host that will persist config files. I use `/home/docker/octoprint-klipper`.
+
+Pull the image. Both `arm` and `amd64` images are on DockerHub. If using raspberry pi or similar use `arm` in place of `[tag]`.
+
+```shell
+docker pull seanauff/octoprint-klipper:[tag]
+```
+
+Start the container once to populate your config folder:
 
 ```
-docker kill octoprint2
-docker rm octoprint2
-docker run --name octoprint2 -d -v /etc/localtime:/etc/localtime:ro -v /home/user/Documents/octoprint-config:/home/octoprint/.octoprint \
+docker run -d --name octoprint-klipper -e TZ=America/New_York -v /home/docker/octoprint-klipper:/home/octoprint/.octoprint \
     --device /dev/ttyUSB0:/dev/ttyUSB0 \
-    --device /dev/video0:/dev/video0 \
-    --device /dev/video1:/dev/video1 \
-    --device /dev/video2:/dev/video2 \
-    -p 5000:5000 -p 8080:8080 -p 8081:8081 -p 8082:8082\
-    -e "MJPG=input_uvc.so -r HD -d /dev/video2" \
-    -e "MJPG1=input_uvc.so -r HD -d /dev/video0" -e "MJPG_PORT1=8081" \
-    -e "MJPG2=input_uvc.so -r HD -d /dev/video1" -e "MJPG_PORT2=8082" \
-    okmd
+    -p 5000:5000 \
+    seanauff/octoprint-klipper:[tag]
 ```
 
-Your Klipper `printer.cfg` should be kept in the OctoPrint config directory (this is where it looks for it at startup).
+Stop the container, and modify your [Klipper] `printer.cfg` and [Octoprint] `config.yaml` in the config directory as needed.
+
+Start the container.
 
 If you have any questions, feel free to log an issue on this project, and I'll see if I can help.
 
-## No MJPG
+## Build the image yourself
 
-Also included is a cut down Dockerfile with no `mjpg` or OctoPrint plugins included.
+Clone the repository and build the image:
 
-This can be built with:
-```
-docker build . --file Dockerfile.KlipperOctoprint -t ko
-```
-
-And run with something like:
-```
-docker run -d -v /etc/localtime:/etc/localtime:ro -v /home/user/Documents/octoprint-config:/home/octoprint/.octoprint \
-    --device /dev/ttyUSB0:/dev/ttyUSB0 \
-    -p 5000:5000 \
-    ko
+```shell
+git clone https://github.com/seanauff/OctoPrint-Klipper.git
+docker build -t seanauff/octoprint-klipper OctoPrint-Klipper
 ```
 
-This is basically untested, but maybe a good start for someone who wants a simpler base container.
+[Octoprint]: https://github.com/foosel/OctoPrint
+[Klipper]: https://github.com/KevinOConnor/klipper
