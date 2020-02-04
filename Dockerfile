@@ -36,7 +36,8 @@ https://github.com/dattas/OctoPrint-DetailedProgress/archive/master.zip \
 https://github.com/mmone/OctoPrintKlipper/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-TabOrder/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/master.zip \
-https://github.com/OctoPrint/OctoPrint-MQTT/archive/master.zip
+https://github.com/OctoPrint/OctoPrint-MQTT/archive/master.zip \
+https://github.com/birkbjo/OctoPrint-Themeify/archive/master.zip
 
 # Installing from sillyfrog until the PR is merged to master
 RUN /opt/octoprint/venv/bin/python -m pip install https://github.com/sillyfrog/OctoPrint-PrintHistory/archive/master.zip
