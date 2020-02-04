@@ -2,8 +2,13 @@
 FROM python:2.7
 EXPOSE 8080
 
-RUN apt-get update && \
-    apt-get install -y cmake libjpeg62-turbo-dev g++ wget unzip psmisc
+RUN apt-get update && apt-get install -y \
+    cmake \
+    libjpeg62-turbo-dev \
+    g++ \
+    wget \
+    unzip \
+    psmisc
 
 EXPOSE 5000
 
