@@ -1,6 +1,5 @@
 
 FROM python:2.7
-EXPOSE 8080
 
 RUN apt-get update && apt-get install -y \
     cmake \
