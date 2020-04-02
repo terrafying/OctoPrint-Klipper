@@ -19,10 +19,7 @@ docker pull seanauff/octoprint-klipper:[tag]
 Start the container once to populate your config folder:
 
 ```
-docker run -d --name octoprint-klipper -e TZ=America/New_York -v /home/docker/octoprint-klipper:/home/octoprint/.octoprint \
-    --device /dev/ttyUSB0:/dev/ttyUSB0 \
-    -p 5000:5000 \
-    seanauff/octoprint-klipper:[tag]
+docker run -d --name octoprint-klipper -e TZ=America/New_York -v /home/docker/octoprint-klipper:/home/octoprint/.octoprint --device /dev/ttyUSB0:/dev/ttyUSB0 -p 5000:5000 seanauff/octoprint-klipper:[tag]
 ```
 
 Stop the container, and modify your [Klipper] `printer.cfg` and [Octoprint] `config.yaml` in the config directory as needed.
