@@ -1,13 +1,18 @@
 
-FROM python:2.7
+FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     cmake \
-    libjpeg62-turbo-dev \
     g++ \
     wget \
     unzip \
-    psmisc
+    psmisc \
+    git \
+    python-virtualenv \
+    virtualenv \
+    python-dev \
+    libffi-dev \
+    build-essential
 
 EXPOSE 5000
 
@@ -37,10 +42,8 @@ https://github.com/jneilliii/OctoPrint-TabOrder/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/master.zip \
 https://github.com/OctoPrint/OctoPrint-MQTT/archive/master.zip \
 https://github.com/birkbjo/OctoPrint-Themeify/archive/master.zip \
-https://github.com/jneilliii/OctoPrint-Python3PluginCompatibilityCheck/archive/master.zip
-
-# Installing from sillyfrog until the PR is merged to master
-RUN /opt/octoprint/venv/bin/python -m pip install https://github.com/sillyfrog/OctoPrint-PrintHistory/archive/master.zip
+https://github.com/jneilliii/OctoPrint-Python3PluginCompatibilityCheck/archive/master.zip \
+https://github.com/imrahil/OctoPrint-PrintHistory/archive/master.zip
 
 VOLUME /home/octoprint/.octoprint
 
@@ -48,11 +51,14 @@ VOLUME /home/octoprint/.octoprint
 
 USER root
 
-RUN apt-get install -y sudo
+RUN apt install -y sudo
 
 COPY klippy.sudoers /etc/sudoers.d/klippy
 
 RUN useradd -ms /bin/bash klippy
+
+# This is to allow the install script to run without error
+RUN ln -s /bin/true /bin/systemctl
 
 USER octoprint
 
@@ -60,9 +66,12 @@ WORKDIR /home/octoprint
 
 RUN git clone https://github.com/KevinOConnor/klipper
 
-RUN ./klipper/scripts/install-octopi.sh
+RUN ./klipper/scripts/install-ubuntu-18.04.sh
 
 USER root
+
+# Clean up hack for install script
+RUN rm -f /bin/systemctl
 
 COPY start.py /
 COPY runklipper.py /
