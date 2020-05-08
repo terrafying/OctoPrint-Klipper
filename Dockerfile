@@ -31,7 +31,7 @@ RUN mkdir /home/octoprint/.octoprint
 #Install Octoprint
 RUN git clone --branch $tag https://github.com/foosel/OctoPrint.git /opt/octoprint \
   && virtualenv venv \
-    && ./venv/bin/python setup.py install
+  && ./venv/bin/pip install .
 
 RUN /opt/octoprint/venv/bin/python -m pip install \
 https://github.com/pablogventura/Octoprint-ETA/archive/master.zip \
