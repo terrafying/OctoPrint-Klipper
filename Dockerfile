@@ -34,7 +34,7 @@ RUN git clone --branch $tag https://github.com/foosel/OctoPrint.git /opt/octopri
   && ./venv/bin/pip install .
 
 RUN /opt/octoprint/venv/bin/python -m pip install \
-https://github.com/pablogventura/Octoprint-ETA/archive/master.zip \
+https://github.com/AlexVerrico/Octoprint-Display-ETA/archive/master.zip \
 https://github.com/1r0b1n0/OctoPrint-Tempsgraph/archive/master.zip \
 https://github.com/tpmullan/OctoPrint-DetailedProgress/archive/master.zip \
 https://github.com/mmone/OctoPrintKlipper/archive/master.zip \
