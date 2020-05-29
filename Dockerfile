@@ -51,7 +51,7 @@ VOLUME /home/octoprint/.octoprint
 
 USER root
 
-RUN apt install -y sudo
+RUN apt-get install -y sudo
 
 COPY klippy.sudoers /etc/sudoers.d/klippy
 
