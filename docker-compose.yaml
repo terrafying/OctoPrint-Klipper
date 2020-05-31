@@ -2,6 +2,7 @@ version: '3'
 services:
   octoprint-klipper:
     image: "seanauff/octoprint-klipper:arm"
+    container_name: "octoprint-klipper"
     devices:
       - "/dev/ttyUSB0:/dev/ttyUSB0"
     ports:
