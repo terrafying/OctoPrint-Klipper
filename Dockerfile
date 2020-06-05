@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     build-essential \
     tzdata \
-    zlib1g-dev
+    zlib1g-dev \
+    libjpeg-dev
 
 EXPOSE 5000
 
