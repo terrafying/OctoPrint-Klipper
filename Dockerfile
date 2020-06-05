@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     virtualenv \
     python-dev \
     libffi-dev \
-    build-essential
+    build-essential \
+    tzdata
 
 EXPOSE 5000
 
