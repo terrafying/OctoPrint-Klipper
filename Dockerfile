@@ -1,6 +1,9 @@
 
 FROM ubuntu:18.04
 
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/New_York
+
 RUN apt-get update && apt-get install -y \
     cmake \
     g++ \
