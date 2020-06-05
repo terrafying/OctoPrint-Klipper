@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
     python-dev \
     libffi-dev \
     build-essential \
-    tzdata
+    tzdata \
+    zlib1g-dev
 
 EXPOSE 5000
 
