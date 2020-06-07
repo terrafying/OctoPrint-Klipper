@@ -49,7 +49,6 @@ https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/master.zip \
 https://github.com/OctoPrint/OctoPrint-MQTT/archive/master.zip \
 https://github.com/birkbjo/OctoPrint-Themeify/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-Python3PluginCompatibilityCheck/archive/master.zip \
-https://github.com/imrahil/OctoPrint-PrintHistory/archive/master.zip \
 https://github.com/OllisGit/OctoPrint-PrintJobHistory/releases/latest/download/master.zip
 
 VOLUME /home/octoprint/.octoprint
