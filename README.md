@@ -4,13 +4,16 @@ My version of a Docker image for running [OctoPrint] and [Klipper] in a single c
 
 Big thanks to [sillyfrog](https://github.com/sillyfrog) for laying the groundwork for this image.
 
-This is very much written for what I needed, so you'll likely need to hack this up for your setup. I've been using it for a little while now and it's going well.
+This is very much written for my purposes, so you'll likely need to modify it for your setup. I've been using it for a while now and it's going well. I've successfully run it on these platforms:
+* Orange Pi Zero 512MB
+* AtomicPi
+* Raspberry Pi 4B 1GB (current)
 
 ## Running the container
 
 Create a directory on your host that will persist config files. I use `/home/docker/octoprint-klipper`.
 
-Pull the image. Both `arm` and `amd64` images are on DockerHub. If using raspberry pi or similar use `arm` in place of `[tag]`.
+Pull the image. Until I figure out multi platform aware images, you need to specify your arch. Both `arm` and `amd64` images are on DockerHub. If using Raspberry Pi or similar use `arm` in place of `[tag]`.
 
 ```shell
 docker pull seanauff/octoprint-klipper:[tag]
@@ -26,7 +29,7 @@ Stop the container, and modify your [Klipper] `printer.cfg` and [Octoprint] `con
 
 Restart the container.
 
-A docker-compose file is also provided.
+A sample docker-compose file is also provided.
 
 If you have any questions, feel free to log an issue on this project, and I'll see if I can help.
 
