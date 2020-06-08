@@ -1,6 +1,6 @@
 # OctoPrint-Klipper
 
-My version of a Docker image for running [OctoPrint] and [Klipper] in a single container. Included a few plugins I find useful.
+My version of a Docker image for running [OctoPrint] and [Klipper] in a single container. Includes a few plugins I find useful.
 
 Big thanks to [sillyfrog](https://github.com/sillyfrog) for laying the groundwork for this image.
 
