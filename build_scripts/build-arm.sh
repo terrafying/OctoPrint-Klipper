@@ -5,4 +5,4 @@ IMAGE=octoprint-klipper
 TAG=arm
 
 # Build & push latest
-docker build -t ${REPO}/${IMAGE}:${TAG} --compress --push ../
+docker build -t ${REPO}/${IMAGE}:${TAG} --compress ../

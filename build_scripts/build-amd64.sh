@@ -5,4 +5,4 @@ IMAGE=octoprint-klipper
 TAG=amd64
 
 # Build & push latest
-docker build -t ${REPO}/${IMAGE}:${TAG} --compress --push ../
+docker build -t ${REPO}/${IMAGE}:${TAG} --compress ../
