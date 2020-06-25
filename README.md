@@ -33,6 +33,10 @@ A sample docker-compose file is also provided.
 
 If you have any questions, feel free to log an issue on this project, and I'll see if I can help.
 
+## Updates
+
+The easiest way to update is to pull the latest image and recreate the container. You could also build the image yourself to get the latest updates. I have had success in using the Octoprint built in updater to upgrade plugins, as well as install new ones. Any upgrades conducted in this manner will be lost upon recreation of the container.
+
 ## Build the image yourself
 
 Clone the repository and build the image:
@@ -40,6 +44,11 @@ Clone the repository and build the image:
 ```shell
 git clone https://github.com/seanauff/OctoPrint-Klipper.git
 docker build -t seanauff/octoprint-klipper OctoPrint-Klipper
+```
+
+If you already have an image built and are trying to upgrade, you may need to force the build not to use cache:
+```shell
+docker build -t seanauff/octoprint-klipper --no-cache -pull OctoPrint-Klipper
 ```
 
 [Octoprint]: https://github.com/foosel/OctoPrint
