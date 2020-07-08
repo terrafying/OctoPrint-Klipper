@@ -9,4 +9,4 @@ export DOCKER_CLI_EXPERIMENTAL="enabled"
 docker buildx use multiarch-builder
 
 # Build & push latest
-docker buildx build -t ${REPO}/${IMAGE}:latest --compress --push --platform "${PLATFORMS}" .
+docker buildx build -t ${REPO}/${IMAGE}:latest --pull --no-cache --compress --push --platform "${PLATFORMS}" .
