@@ -51,7 +51,7 @@ https://github.com/birkbjo/OctoPrint-Themeify/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-Python3PluginCompatibilityCheck/archive/master.zip \
 https://github.com/OllisGit/OctoPrint-PrintJobHistory/releases/latest/download/master.zip \
 https://github.com/marian42/octoprint-preheat/archive/master.zip \
-https://github.com/malnvenshorn/OctoPrint-FilamentManager/archive/master.zip \
+https://github.com/OllisGit/OctoPrint-FilamentManager/releases/latest/download/master.zip \
 https://github.com/OllisGit/OctoPrint-DisplayLayerProgress/releases/latest/download/master.zip \
 https://github.com/jneilliii/OctoPrint-UltimakerFormatPackage/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-ConsolidateTempControl/archive/master.zip
