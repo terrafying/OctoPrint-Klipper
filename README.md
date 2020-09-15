@@ -7,7 +7,7 @@ Big thanks to [sillyfrog](https://github.com/sillyfrog) for laying the groundwor
 This is very much written for my purposes, so you'll likely need to modify it for your setup. I've been using it for a while now and it's going well. I've successfully run it on these platforms:
 * Orange Pi Zero 512MB
 * AtomicPi
-* Raspberry Pi 4B 1GB (current)
+* Raspberry Pi 4B 1GB (current source of `arm` images)
 
 ## Running the container
 
