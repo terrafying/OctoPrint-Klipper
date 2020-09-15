@@ -39,6 +39,8 @@ The easiest way to update is to pull the latest image and recreate the container
 
 ## Build the image yourself
 
+The DockerHub images may not be as up to date as the repo (`amd64` is autobuilt, but not `arm`), so you can ensure you have the latest by building yourself.
+
 Clone the repository and build the image:
 
 ```shell
