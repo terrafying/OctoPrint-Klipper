@@ -10,9 +10,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     psmisc \
     git \
-    python-virtualenv \
-    virtualenv \
-    python-dev \
+    python3-virtualenv \
     libffi-dev \
     build-essential \
     tzdata \
