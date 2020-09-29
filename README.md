@@ -33,6 +33,10 @@ A sample docker-compose file is also provided.
 
 If you have any questions, feel free to log an issue on this project, and I'll see if I can help.
 
+## Reconnecting to MCU after board power cycle
+
+Depending on your power situation, removing power from the printer main board will interrupt the serial connection. I had to give my container some more permissions in order to detect the coonection again without restarting the entire container. There is some discussion [here](https://github.com/moby/moby/issues/35359) and [here](https://www.losant.com/blog/how-to-access-serial-devices-in-docker).
+
 ## Updates
 
 The easiest way to update is to pull the latest image and recreate the container. You could also build the image yourself to get the latest updates. I have had success in using the Octoprint built in updater to upgrade plugins, as well as install new ones. Any upgrades conducted in this manner will be lost upon recreation of the container.
