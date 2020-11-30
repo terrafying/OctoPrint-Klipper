@@ -1,22 +1,21 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/New_York
 
 RUN apt-get update && apt-get install -y \
     cmake \
+    libjpeg8-dev \
     g++ \
     wget \
     unzip \
-    psmisc \
     git \
+    python2 \
+    virtualenv \
+    python3-dev \
     python3-virtualenv \
-    libffi-dev \
-    build-essential \
-    tzdata \
-    zlib1g-dev \
-    libjpeg-dev
-
+    tzdata
+    
 EXPOSE 5000
 
 ARG tag=master
@@ -71,6 +70,9 @@ RUN ln -s /bin/true /bin/systemctl
 USER octoprint
 
 WORKDIR /home/octoprint
+
+# Update the install script for Ubuntu 20
+RUN sed -i 's/python-virtualenv //' ./klipper/scripts/install-ubuntu-18.04.sh
 
 RUN git clone https://github.com/KevinOConnor/klipper
 
