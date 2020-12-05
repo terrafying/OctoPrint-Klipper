@@ -53,7 +53,8 @@ https://github.com/marian42/octoprint-preheat/archive/master.zip \
 https://github.com/OllisGit/OctoPrint-FilamentManager/releases/latest/download/master.zip \
 https://github.com/OllisGit/OctoPrint-DisplayLayerProgress/releases/latest/download/master.zip \
 https://github.com/jneilliii/OctoPrint-UltimakerFormatPackage/archive/master.zip \
-https://github.com/jneilliii/OctoPrint-ConsolidateTempControl/archive/master.zip
+https://github.com/jneilliii/OctoPrint-ConsolidateTempControl/archive/master.zip \
+https://github.com/LazeMSS/OctoPrint-UICustomizer/archive/main.zip
 
 VOLUME /home/octoprint/.octoprint
 
