@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM --platform=linux/arm64 ubuntu:18.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/New_York
