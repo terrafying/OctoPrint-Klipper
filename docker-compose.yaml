@@ -1,14 +1,18 @@
-version: '3'
+version: '2'
 services:
   octoprint-klipper:
     image: "seanauff/octoprint-klipper:arm"
+    build: ./octoprint-klipper
     container_name: "octoprint-klipper"
     devices:
       - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/ttyACM0:/dev/ttyACM0"
     ports:
-      - "5000:5000"
+      - "80:5000"
     volumes:
-      - "/home/docker/octoprint-klipper:/home/octoprint/.octoprint"
+      - "octoprint-klipper:/home/octoprint/.octoprint"
     environment:
       TZ: America/New_York
     restart: unless-stopped
+volumes:
+  octoprint-klipper: {}
