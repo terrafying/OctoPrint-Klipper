@@ -1,7 +1,7 @@
 version: '2'
 services:
   octoprint-klipper:
-    image: "seanauff/octoprint-klipper:amd64"
+    image: "terrafying/octoprint-klipper:amd64"
     build: ./octoprint-klipper
     container_name: "octoprint-klipper"
     devices:
