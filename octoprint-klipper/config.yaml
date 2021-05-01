@@ -1,0 +1,143 @@
+accessControl:
+  salt: 8DLG28x2BEcaZjohpOcA9rXASyucbJyD
+api:
+  key: 3931F8BF18194ABB80F41EB52E2F8E07
+plugins:
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1615917600
+      _important:
+        read_until: 1521111600
+      _octopi:
+        read_until: 1611568800
+      _plugins:
+        read_until: 1619672400
+      _releases:
+        read_until: 1619514900
+  bedlevelvisualizer:
+    _config_version: 1
+  discovery:
+    upnpUuid: aa01fc9f-e26a-43ef-93a0-4374c21979c7
+  errortracking:
+    unique_id: deba9f44-2f01-4246-a5ee-02abed9fc12d
+  filamentmanager:
+    _config_version: 1
+    database:
+      clientID: 9f82ee48-aa32-11eb-bb1a-02420a726502
+  gcodeviewer:
+    _config_version: 1
+  klipper:
+    _config_version: 2
+  softwareupdate:
+    _config_version: 9
+  taborder:
+    _config_version: 5
+  tracking:
+    enabled: false
+    unique_id: 97d9d0a6-57d8-4a05-a464-f4737bf91542
+  uicustomizer:
+    mainTabs:
+    - - timelapse_link
+      - true
+      - false
+      - fas fa-film
+      - true
+      - false
+    - - term_link
+      - true
+      - false
+      - fas fa-terminal
+      - true
+      - false
+    - - gcode_link
+      - true
+      - false
+      - fab fa-codepen
+      - true
+      - false
+    - - tab_plugin_PrintJobHistory_link
+      - true
+      - false
+      - false
+      - textOnly
+      - '#000000'
+    - - tab_plugin_consolidate_temp_control_link
+      - true
+      - false
+      - false
+      - textOnly
+      - '#000000'
+    - - tab_plugin_bedlevelvisualizer_link
+      - true
+      - false
+      - false
+      - textOnly
+      - '#000000'
+    - - tab_plugin_klipper_main_link
+      - true
+      - false
+      - false
+      - textOnly
+      - '#000000'
+    rows:
+    - _00#files_wrapper: true
+      _01#sidebar_plugin_firmware_check_warning_wrapper: false
+      _02#sidebar_plugin_firmware_check_info_wrapper: false
+      _03#sidebar_plugin_klipper_wrapper: true
+      _04#sidebar_plugin_filamentmanager_wrapper: true
+    - _00div.UICmainTabs: true
+    - _00#UICGcodeVWidget: true
+      _01#UICWebCamWidget: true
+      _02#sidebar_plugin_action_command_notification_wrapper: true
+      _03#state_wrapper: true
+    themeVersion: 0.1.7
+    topIconSort:
+    - navbar_plugin_DisplayLayerProgress
+    - navbar_plugin_klipper
+    - navbar_plugin_display_eta
+    - navbar_plugin_action_command_prompt
+    - navbar_plugin_PrintJobHistory
+    - navbar_plugin_logging_seriallog
+    - navbar_plugin_logging_plugintimingslog
+    widths:
+    - '3'
+    - '6'
+    - '3'
+  virtual_printer:
+    _config_version: 1
+printerProfiles:
+  default: _default
+serial:
+  additionalPorts:
+  - /tmp/printer
+server:
+  commands:
+    serverRestartCommand: restart
+    systemRestartCommand: reboot
+    systemShutdownCommand: shutdown
+  firstRun: false
+  incompleteStartup: true
+  onlineCheck:
+    enabled: true
+  pluginBlacklist:
+    enabled: true
+  secretKey: ECX7YjeiogcKM15cATlFMFFEOYjWd1mj
+  seenWizards:
+    backup: null
+    corewizard: 4
+    tracking: null
+temperature:
+  profiles:
+  - bed: 100
+    chamber: null
+    extruder: 210
+    name: ABS
+  - bed: 60
+    chamber: null
+    extruder: 180
+    name: PLA
+webcam:
+  snapshot: http://printer:80/snapshot
+  stream: http://printer:80/stream

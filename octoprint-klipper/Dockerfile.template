@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 ubuntu:18.04
+FROM balenalib/%%BALENA_MACHINE_NAME%%-ubuntu:bionic
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/New_York
@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     tzdata \
     zlib1g-dev \
-    libjpeg-dev
+    libjpeg-dev \
+    sudo
 
 EXPOSE 5000
 
@@ -26,8 +27,7 @@ ARG tag=master
 WORKDIR /opt/octoprint
 
 #Create an octoprint user
-RUN useradd -ms /bin/bash octoprint && adduser octoprint dialout
-RUN chown octoprint:octoprint /opt/octoprint
+RUN useradd -ms /bin/bash octoprint && adduser octoprint dialout && chown octoprint:octoprint /opt/octoprint
 USER octoprint
 
 #This fixes issues with the volume command setting wrong permissions
@@ -62,8 +62,6 @@ VOLUME /home/octoprint/.octoprint
 
 USER root
 
-RUN apt-get install -y sudo
-
 COPY klippy.sudoers /etc/sudoers.d/klippy
 
 RUN useradd -ms /bin/bash klippy
@@ -78,6 +76,11 @@ WORKDIR /home/octoprint
 RUN git clone https://github.com/KevinOConnor/klipper
 
 RUN ./klipper/scripts/install-ubuntu-18.04.sh
+
+
+# Copy Biqu-compatible config to home dir
+RUN cp /home/octoprint/klipper/config/generic-bigtreetech-skr-v1.4.cfg /home/octoprint/printer.cfg
+
 
 USER root
 
