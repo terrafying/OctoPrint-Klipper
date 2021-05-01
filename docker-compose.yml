@@ -1,0 +1,14 @@
+version: '2'
+services:
+  octoprint-klipper:
+    build: ./octoprint-klipper
+    privileged: true
+    ports:
+      - "80:5000"
+    volumes:
+      - "octoprint-klipper:/home/octoprint/.octoprint"
+    environment:
+      - "TZ=America/New_York"
+    restart: always
+volumes:
+  octoprint-klipper:
