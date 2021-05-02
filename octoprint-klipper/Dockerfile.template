@@ -54,7 +54,10 @@ https://github.com/OllisGit/OctoPrint-FilamentManager/releases/latest/download/m
 https://github.com/OllisGit/OctoPrint-DisplayLayerProgress/releases/latest/download/master.zip \
 https://github.com/jneilliii/OctoPrint-UltimakerFormatPackage/archive/master.zip \
 https://github.com/jneilliii/OctoPrint-ConsolidateTempControl/archive/master.zip \
-https://github.com/LazeMSS/OctoPrint-UICustomizer/archive/main.zip
+https://github.com/LazeMSS/OctoPrint-UICustomizer/archive/main.zip \
+https://github.com/OllisGit/OctoPrint-SpoolManager/releases/latest/download/master.zip
+
+# idk this breaks it?
 
 VOLUME /home/octoprint/.octoprint
 
@@ -77,10 +80,17 @@ RUN git clone https://github.com/KevinOConnor/klipper
 
 RUN ./klipper/scripts/install-ubuntu-18.04.sh
 
+# Needed for klippy
+RUN apt -y install dfu-util
 
 # Copy Biqu-compatible config to home dir
-RUN cp /home/octoprint/klipper/config/generic-bigtreetech-skr-v1.4.cfg /home/octoprint/printer.cfg
+# RUN cp /home/octoprint/klipper/config/generic-bigtreetech-skr-v1.4.cfg /home/octoprint/printer.cfg
 
+# From `make menuconfig` - used USB enabled, LPC 100MHz board
+COPY make.config ./klipper/.config
+
+# Pre-build binaries
+RUN cd klipper && make
 
 USER root
 
